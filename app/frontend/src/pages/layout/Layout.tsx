@@ -2,6 +2,10 @@ import { Outlet, NavLink, Link } from "react-router-dom";
 
 import github from "../../assets/github.svg";
 
+import CookGPTLogo from "../../assets/CookGPTLogo.svg";
+
+import CookLogo from "../../assets/CookLogo.svg";
+
 import styles from "./Layout.module.css";
 
 import { useLogin } from "../../authConfig";
@@ -13,8 +17,17 @@ const Layout = () => {
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
+
+                    <img
+                        src={CookLogo}
+                        alt="Cook logo"
+                        width="20px"
+                        height="20px"
+                        className={styles.cookLogo}
+                    />
+
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>GPT + Enterprise data | Sample</h3>
+                        <h3 className={styles.headerTitle}>CookGPT+ Beta</h3>
                     </Link>
                     <nav>
                         <ul className={styles.headerNavList}>
