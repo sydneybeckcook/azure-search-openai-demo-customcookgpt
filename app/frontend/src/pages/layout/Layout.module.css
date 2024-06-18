@@ -5,6 +5,8 @@
 }
 
 .header {
+    width: 100%; /*new*/
+    border-bottom: 1px solid #ddd; /*new*/
     background-color: #222222;
     color: #f2f2f2;
 }
@@ -12,9 +14,11 @@
 .headerContainer {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-right: 12px;
     margin-left: 12px;
+    justify-content: space-between; /* Ensure spacing between items */
+    padding: 0 12px; /* Adjust padding to control spacing */
 }
 
 .headerTitleContainer {
@@ -23,6 +27,7 @@
     margin-right: 40px;
     color: #f2f2f2;
     text-decoration: none;
+    justify-content: flex-start; /* Align content to the left */
 }
 
 .headerLogo {
@@ -75,4 +80,21 @@
 
 .githubLogo {
     height: 20px;
+}
+
+.titleContainer {
+    flex-grow: 1; /* Allows the title container to take up remaining space */
+    text-align: center;
+}
+
+/* Center nav links */
+.navContainer {
+    display: flex;
+    justify-content: center; /* Center the nav links */
+    flex-grow: 1; /* Allow nav container to grow */
+}
+
+/* Ensure login button is rightmost */
+.headerContainer > .LoginButton {
+    margin-left: auto; /* Pushes the login button to the right */
 }

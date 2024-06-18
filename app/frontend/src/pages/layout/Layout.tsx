@@ -18,18 +18,22 @@ const Layout = () => {
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
 
-                    <img
-                        src={CookLogo}
-                        alt="Cook logo"
-                        width="20px"
-                        height="20px"
-                        className={styles.cookLogo}
-                    />
-
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>CookGPT+ Beta</h3>
+                        <img
+                            src={CookLogo}
+                            alt="Cook logo"
+                            width="170px"
+                            height="40px"
+                            className={styles.cookLogo}
+                        />
+                        <div className={styles.titleContainer}>
+                        <h3 id="header-title" className={styles.headerTitle}>
+                            CookGPT+ Beta
+                        </h3>
+                    </div>
                     </Link>
-                    <nav>
+                    
+                    <nav className={styles.navContainer}>
                         <ul className={styles.headerNavList}>
                             <li>
                                 <NavLink to="/" className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}>
@@ -41,7 +45,7 @@ const Layout = () => {
                                     Ask a question
                                 </NavLink>
                             </li>
-                            <li className={styles.headerNavLeftMargin}>
+                            {/* <li className={styles.headerNavLeftMargin}>
                                 <a href="https://aka.ms/entgptsearch" target={"_blank"} title="Github repository link">
                                     <img
                                         src={github}
@@ -52,10 +56,10 @@ const Layout = () => {
                                         className={styles.githubLogo}
                                     />
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
-                    <h4 className={styles.headerRightText}>Azure OpenAI + AI Search</h4>
+                    {/* <h4 className={styles.headerRightText}>Azure OpenAI + AI Search</h4> */}
                     {useLogin && <LoginButton />}
                 </div>
             </header>
