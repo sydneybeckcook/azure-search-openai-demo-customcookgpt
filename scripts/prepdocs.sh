@@ -4,10 +4,10 @@
 
 echo 'Running "prepdocs.py"'
 
-if [ -n "$AZURE_PUBLIC_NETWORK_ACCESS" ] && [ "$AZURE_PUBLIC_NETWORK_ACCESS" = "Disabled" ]; then
-  echo "AZURE_PUBLIC_NETWORK_ACCESS is set to Disabled. Exiting."
-  exit 0
-fi
+# if [ -n "$AZURE_PUBLIC_NETWORK_ACCESS" ] && [ "$AZURE_PUBLIC_NETWORK_ACCESS" = "Disabled" ]; then
+#   echo "AZURE_PUBLIC_NETWORK_ACCESS is set to Disabled. Exiting."
+#   exit 0
+# fi
 
 if [ -n "$AZURE_ADLS_GEN2_STORAGE_ACCOUNT" ]; then
   adlsGen2StorageAccountArg="--datalakestorageaccount $AZURE_ADLS_GEN2_STORAGE_ACCOUNT"
