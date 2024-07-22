@@ -4,10 +4,10 @@
 
 echo 'Running "prepdocs.py"'
 
-if [ -n "$AZURE_PUBLIC_NETWORK_ACCESS" ] && [ "$AZURE_PUBLIC_NETWORK_ACCESS" = "Disabled" ]; then
-  echo "AZURE_PUBLIC_NETWORK_ACCESS is set to Disabled. Exiting."
-  exit 0
-fi
+# if [ -n "$AZURE_PUBLIC_NETWORK_ACCESS" ] && [ "$AZURE_PUBLIC_NETWORK_ACCESS" = "Disabled" ]; then
+#   echo "AZURE_PUBLIC_NETWORK_ACCESS is set to Disabled. Exiting."
+#   exit 0
+# fi
 
 if [ -n "$AZURE_ADLS_GEN2_STORAGE_ACCOUNT" ]; then
   adlsGen2StorageAccountArg="--datalakestorageaccount $AZURE_ADLS_GEN2_STORAGE_ACCOUNT"
@@ -69,6 +69,11 @@ elif [ -n "$OPENAI_API_KEY" ]; then
   openAiApiKeyArg="--openaikey $OPENAI_API_KEY"
 fi
 
+additionalArgs=""
+if [ $# -gt 0 ]; then
+  additionalArgs="$@"
+fi
+
 ./.venv/bin/python ./app/backend/prepdocs.py './data/*' --verbose \
 --subscriptionid $AZURE_SUBSCRIPTION_ID  \
 --storageaccount "$AZURE_STORAGE_ACCOUNT" --container "$AZURE_STORAGE_CONTAINER" --storageresourcegroup $AZURE_STORAGE_RESOURCE_GROUP \
@@ -83,4 +88,5 @@ $searchImagesArg $visionEndpointArg \
 $adlsGen2StorageAccountArg $adlsGen2FilesystemArg $adlsGen2FilesystemPathArg \
 $tenantArg $aclArg \
 $disableVectorsArg $localPdfParserArg $localHtmlParserArg \
-$integratedVectorizationArg
+$integratedVectorizationArg \
+$additionalArgs
