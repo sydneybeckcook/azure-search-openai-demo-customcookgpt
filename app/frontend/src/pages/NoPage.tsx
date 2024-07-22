@@ -37,11 +37,9 @@ Component.displayName = "NoPage";
 const styles = {
     container: {
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        textAlign: 'center',
         backgroundColor: '#f8f8f8',
         color: '#333',
     },

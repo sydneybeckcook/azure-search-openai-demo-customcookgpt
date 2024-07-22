@@ -14,17 +14,7 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
-// import ToggleSwitch from "../../components/ToggleSwitch";
-
 const Layout = () => {
-
-    // const [selectedModel, setSelectedModel] = useState('gpt3.5');
-
-    // const handleToggle = (model) => {
-    //     setSelectedModel(model);
-    //     // Update the logic to fetch answers from the selected model
-    //     console.log(`Switched to ${model}`);
-    // };
 
     return (
         <div className={styles.layout}>
@@ -55,11 +45,11 @@ const Layout = () => {
                             </li>
                             {/* Commenting out "ask question" part as its not a useful feature for us */}
                             
-                            {/* <li className={styles.headerNavLeftMargin}>
+                            <li className={styles.headerNavLeftMargin}>
                                 <NavLink to="/qa" className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}>
                                     Ask a question
                                 </NavLink>
-                            </li> */}
+                            </li>
                             
                             {/* No need for the original github repository logo */}
                             {/* <li className={styles.headerNavLeftMargin}>
@@ -77,8 +67,6 @@ const Layout = () => {
                         </ul>
                     </nav>
                     {/* <h4 className={styles.headerRightText}>Azure OpenAI + AI Search</h4> */}
-
-                    {/* <ToggleSwitch onToggle={handleToggle} /> Include the ToggleSwitch component */}
 
                     {useLogin && <LoginButton />}
                 </div>
