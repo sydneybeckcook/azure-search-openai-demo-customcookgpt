@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef, RefObject } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 
-import { useState } from "react";
-
 import github from "../../assets/github.svg";
 
 import CookGPTLogo from "../../assets/CookGPTLogo.svg";
