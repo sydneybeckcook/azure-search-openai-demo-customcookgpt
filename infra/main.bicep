@@ -32,7 +32,7 @@ var actualSearchServiceSemanticRankerLevel = (searchServiceSkuName == 'free') ? 
 param storageAccountName string = '' // Set in main.parameters.json
 param storageResourceGroupName string = '' // Set in main.parameters.json
 param storageResourceGroupLocation string = location
-param storageContainerName string = 'content'
+param storageContainerName string = ''
 param storageSkuName string // Set in main.parameters.json
 
 param userStorageAccountName string = ''
@@ -117,10 +117,10 @@ var embedding = {
   dimensions: embeddingDimensions != 0 ? embeddingDimensions : 1536
 }
 
-param gpt4vModelName string = 'gpt-4o'
-param gpt4vDeploymentName string = 'gpt-4o'
-param gpt4vModelVersion string = '2024-05-13'
-param gpt4vDeploymentCapacity int = 10
+param gpt4vModelName string = ''
+param gpt4vDeploymentName string = ''
+param gpt4vModelVersion string = ''
+param gpt4vDeploymentCapacity int = 0
 
 param tenantId string = tenant().tenantId
 param authTenantId string = ''
@@ -491,7 +491,7 @@ module storage 'core/storage/storage-account.bicep' = {
     publicNetworkAccess: publicNetworkAccess
     bypass: bypass
     allowBlobPublicAccess: false
-    allowSharedKeyAccess: false
+    allowSharedKeyAccess: true
     sku: {
       name: storageSkuName
     }
@@ -518,7 +518,7 @@ module userStorage 'core/storage/storage-account.bicep' = if (useUserUpload) {
     publicNetworkAccess: publicNetworkAccess
     bypass: bypass
     allowBlobPublicAccess: false
-    allowSharedKeyAccess: false
+    allowSharedKeyAccess: true
     isHnsEnabled: true
     sku: {
       name: storageSkuName

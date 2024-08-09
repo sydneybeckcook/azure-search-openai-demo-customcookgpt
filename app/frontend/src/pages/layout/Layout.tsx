@@ -77,6 +77,8 @@ const Layout = () => {
                                     Ask a question
                                 </NavLink>
                             </li>
+                            
+                            {/* No need for the original github repository logo */}
                             {/* <li className={styles.headerNavLeftMargin}>
                                 <a href="https://aka.ms/entgptsearch" target={"_blank"} title="Github repository link">
                                     <img
